@@ -7,14 +7,19 @@ const connection = {};
 		return;
 	}
 
-	console.log(process.env.MONGO_URI)
+	console.log(
+		"mongodb+srv://twg:twg123@cluster0.x2opb1s.mongodb.net/mern?retryWrites=true&w=majority"
+	);
 	try {
-		const db = await mongoose.connect(process.env.MONGO_URI, {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useCreateIndex: true,
-			useFindAndModify: false,
-		});
+		const db = await mongoose.connect(
+			"mongodb+srv://twg:twg123@cluster0.x2opb1s.mongodb.net/mern?retryWrites=true&w=majority",
+			{
+				useNewUrlParser: true,
+				useUnifiedTopology: true,
+				useCreateIndex: true,
+				useFindAndModify: false,
+			}
+		);
 
 		connection.isConnected = db.connections[0].readyState;
 
